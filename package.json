@@ -1,0 +1,27 @@
+{
+  "name": "gm_leaderboard",
+  "version": "0.0.0",
+  "description": "A leaderboard application in a highly contentious GroupMe environment where your closest friends battle for honor and prestige.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danmostudco/gm_leaderboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danmostudco/gm_leaderboard/issues"
+  },
+  "homepage": "https://github.com/danmostudco/gm_leaderboard#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.4.1"
+  }
+}
