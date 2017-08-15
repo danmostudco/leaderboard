@@ -5,3 +5,7 @@ import './styles/index.css';
 
 const container = document.getElementById('container');
 ReactDOM.render(<App></App>, container);
+
+if (module.hot) {
+    module.hot.accept();
+}
