@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import Person from './person'
 import '../styles/app.css';
 
 export default class App extends React.Component {
@@ -29,6 +31,12 @@ export default class App extends React.Component {
         fetch("https://immense-shore-97696.herokuapp.com/api/v1/totals?days=30").then(response => {
             if (response.ok) {
                 response.json().then(usersObject => {
+
+                    // if GroupMe Calendar comes back, remove it
+                    if(usersObject["GroupMe Calendar"]) {
+                        delete usersObject["GroupMe Calendar"]
+                    }
+
                     const arrayUsers = this.convertObjectToArray(usersObject)
                     this.setState({people: arrayUsers})
                 })
@@ -42,7 +50,7 @@ export default class App extends React.Component {
     
     render() {
         const peopleList = this.state.people.map((person, index) => {
-            return <Person key={index} name={person.name}/>
+            return <Person key={index} name={person.name} likes_received={person.likes_received} messages_posted={person.messages_posted}/>
         })
 
         return (
@@ -51,13 +59,5 @@ export default class App extends React.Component {
             {peopleList}
         </div>
         );
-    }
-}
-
-class Person extends React.Component {
-    render() {
-        return (
-            <p>{this.props.name}</p>
-        )
     }
 }
