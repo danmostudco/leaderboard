@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Person from './person.jsx'
+import DateSelector from './dateselector.jsx'
 import '../styles/app.css';
 
 export default class App extends React.Component {
     constructor() {
         super();
-        this.state = {people: []};  
+        this.state = {people: [], daysFilter: 30};
+        this.updateDays = this.updateDays.bind(this);
     }
 
     componentDidMount () {
-        this.loadData();
+        this.loadData(this.state.daysFilter);
     }
 
     // Convert Object from JSON into an array that can be iterated over
@@ -25,10 +27,28 @@ export default class App extends React.Component {
         return result;
     }
 
+    // TODO: likely better to just load all three states and switch between those, 
+    // rather than hit the API dynamically
+    updateDays(newDays) {
+        newDays = parseInt(newDays);
+        if (newDays === this.state.daysFilter) {
+            return
+        } else {
+            // take a copy of our state
+            const newState = {...this.state};
+            console.log(newState);
+
+            // update with the new days
+            newState["daysFilter"] = newDays;
+            this.setState(newState)
+            this.loadData(newDays);
+        }
+    }
+
     // Take JSON Object and then convert it to an array
     // Set this to the state
-    loadData() {
-        fetch("https://immense-shore-97696.herokuapp.com/api/v1/totals?days=30").then(response => {
+    loadData(days) {
+        fetch(`https://immense-shore-97696.herokuapp.com/api/v1/totals?days=${days.toString()}`).then(response => {
             if (response.ok) {
                 response.json().then(usersObject => {
 
@@ -41,7 +61,10 @@ export default class App extends React.Component {
                     const arrayUsers = this.convertObjectToArray(usersObject)
                         .sort((a,b) => a.likes_received < b.likes_received)
 
-                    this.setState({people: arrayUsers})
+
+                    const newState = {...this.state};
+                    newState["people"] = arrayUsers;
+                    this.setState(newState);
                 })
             } else {
                 response.json().then(err => {
@@ -59,6 +82,7 @@ export default class App extends React.Component {
         return (
         <div>
             <h1>Leaderboard</h1>
+            <DateSelector updateDays={this.updateDays}/>
             {peopleList}
         </div>
         );
