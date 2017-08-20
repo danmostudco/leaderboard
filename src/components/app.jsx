@@ -37,7 +37,10 @@ export default class App extends React.Component {
                         delete usersObject["GroupMe Calendar"]
                     }
 
+                    // sort by like count before setting state
                     const arrayUsers = this.convertObjectToArray(usersObject)
+                        .sort((a,b) => a.likes_received < b.likes_received)
+
                     this.setState({people: arrayUsers})
                 })
             } else {
