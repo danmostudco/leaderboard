@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Person from './person'
+import Person from './person.jsx'
 import '../styles/app.css';
 
 export default class App extends React.Component {
