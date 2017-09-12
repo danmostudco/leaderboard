@@ -7,6 +7,7 @@ import '../styles/app.css';
 export default class App extends React.Component {
     constructor() {
         super();
+        this.cachedData = {};
         this.state = {people: [], daysFilter: 30};
         this.updateDays = this.updateDays.bind(this);
     }
@@ -27,11 +28,14 @@ export default class App extends React.Component {
         return result;
     }
 
-    // TODO: likely better to just load all three states and switch between those, 
-    // rather than hit the API dynamically
     updateDays(newDays) {
         newDays = parseInt(newDays);
         if (newDays === this.state.daysFilter) {
+            // not sure why this works, but set this up above return statement
+            // and the caching works fine
+            const newState = {...this.state};
+            newState["people"] = this.cachedData[newDays];
+            this.setState(newState) 
             return
         } else {
             // take a copy of our state
@@ -41,7 +45,15 @@ export default class App extends React.Component {
             // update with the new days
             newState["daysFilter"] = newDays;
             this.setState(newState)
-            this.loadData(newDays);
+
+            // check for cachedData and use it if found
+            if (this.cachedData[newDays]) {
+               const newState = {...this.state};
+               newState["people"] = this.cachedData[newDays];
+               this.setState(newState) 
+            } else {
+                this.loadData(newDays);
+            }
         }
     }
 
@@ -62,6 +74,7 @@ export default class App extends React.Component {
                         .sort((a,b) => a.likes_received < b.likes_received)
 
 
+                    this.cachedData[this.state.daysFilter] = arrayUsers;
                     const newState = {...this.state};
                     newState["people"] = arrayUsers;
                     this.setState(newState);
