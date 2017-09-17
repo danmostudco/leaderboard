@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Person from './person.jsx'
 import DateSelector from './dateselector.jsx'
-import '../styles/app.css';
 
 export default class App extends React.Component {
     constructor() {
