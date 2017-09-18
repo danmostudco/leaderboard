@@ -23,6 +23,7 @@ export default class App extends React.Component {
         keys.forEach(key => {result.push(json[key])});
         for (var i in result) {
             result[i].name = keys[i]
+            result[i]['imageSource'] = result[i].name.replace(/ /g,'').toLowerCase(); //set name for image file
         }
         return result;
     }
@@ -88,7 +89,7 @@ export default class App extends React.Component {
     
     render() {
         const peopleList = this.state.people.map((person, index) => {
-            return <Person key={index} name={person.name} likes_received={person.likes_received} messages_posted={person.messages_posted}/>
+            return <Person key={index} name={person.name} likes_received={person.likes_received} messages_posted={person.messages_posted} imageSource={person.imageSource}/>
         })
 
         return (

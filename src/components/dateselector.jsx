@@ -9,7 +9,7 @@ export default class DateSelector extends React.Component {
         });
 
         return (
-            <div>
+            <div className="datePicker">
                 {filterDates}
             </div>
         )
