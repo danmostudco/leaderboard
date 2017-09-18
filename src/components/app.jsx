@@ -93,9 +93,11 @@ export default class App extends React.Component {
 
         return (
         <div>
-            <h1>Leaderboard</h1>
+            <h1 className="title">Leaderboard</h1>
             <DateSelector updateDays={this.updateDays}/>
-            {peopleList}
+            <div className="peopleList">
+                {peopleList}
+            </div>
         </div>
         );
     }
