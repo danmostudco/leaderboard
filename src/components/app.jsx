@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Person from './person.jsx'
 import DateSelector from './dateselector.jsx'
-import '../styles/app.css';
 
 export default class App extends React.Component {
     constructor() {
@@ -24,6 +23,7 @@ export default class App extends React.Component {
         keys.forEach(key => {result.push(json[key])});
         for (var i in result) {
             result[i].name = keys[i]
+            result[i]['imageSource'] = result[i].name.replace(/ /g,'').toLowerCase(); //set name for image file
         }
         return result;
     }
@@ -89,14 +89,16 @@ export default class App extends React.Component {
     
     render() {
         const peopleList = this.state.people.map((person, index) => {
-            return <Person key={index} name={person.name} likes_received={person.likes_received} messages_posted={person.messages_posted}/>
+            return <Person key={index} name={person.name} likes_received={person.likes_received} messages_posted={person.messages_posted} imageSource={person.imageSource}/>
         })
 
         return (
         <div>
-            <h1>Leaderboard</h1>
+            <h1 className="title">Leaderboard</h1>
             <DateSelector updateDays={this.updateDays}/>
-            {peopleList}
+            <div className="peopleList">
+                {peopleList}
+            </div>
         </div>
         );
     }

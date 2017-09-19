@@ -9,7 +9,7 @@ export default class DateSelector extends React.Component {
         });
 
         return (
-            <div>
+            <div className="datePicker">
                 {filterDates}
             </div>
         )
@@ -29,9 +29,9 @@ class Date extends React.Component {
 
     render() {
         return (
-            <div style={{display:"inline"}}>
+            <div className="individualDate" style={{display:"inline"}}>
             <a href="#" onClick={this.handleClick}>{this.props.days} days </a>
-            <span> - </span>
+            <span></span>
             </div>
         )
     }

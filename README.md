@@ -5,7 +5,7 @@ A leaderboard application in a highly contentious GroupMe environment where your
 Just fork the repo and within the root folder run
 ```sh
 $ npm install
-$ npm watch
+$ npm run watch
 ```
 This will begin running the webpack-dev-server with Hot Module Replacement. You then need to go to localhost:8000/app.html to view the application. The dev-server currently bundles files into the dist folder as app.bundle.js and vendor.bundle.js. Making adjustments to the React Components will rebundle app.bundle.js.
 
