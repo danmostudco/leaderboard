@@ -85,7 +85,7 @@
     @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
             &>.personImage {
-                animation-delay: 200 + (100ms * $i) 
+                animation-delay: 170 + (100ms * $i) 
             }
         }
     }

@@ -9,7 +9,7 @@ export default class App extends React.Component {
         return (
             <div className="personRow">
                 <div className="personImage">
-                    <img src="./images/jungclaus.jpg"/>
+                    <img src={`./images/${this.props.imageSource}.jpg`}/>
                 </div>
                 <div className="personText">
                     <span className="personName">{this.props.name}</span>
