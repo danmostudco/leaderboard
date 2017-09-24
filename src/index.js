@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app.jsx';
-import './scss/main.scss';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-const container = document.getElementById('container');
-ReactDOM.render(<App></App>, container);
-
-if (module.hot) {
-    module.hot.accept();
-}
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();

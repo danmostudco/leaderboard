@@ -1,34 +1,21 @@
 {
-  "name": "gm_leaderboard",
-  "version": "0.0.0",
-  "description": "A leaderboard application in a highly contentious GroupMe environment where your closest friends battle for honor and prestige.",
-  "main": "index.js",
+  "name": "cra_lb",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.13"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "webpack -d --watch",
-    "watch": "webpack-dev-server --hot --inline"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danmostudco/gm_leaderboard.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/danmostudco/gm_leaderboard/issues"
-  },
-  "homepage": "https://github.com/danmostudco/gm_leaderboard#readme",
-  "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "css-loader": "^0.28.4",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "node-sass": "^4.5.3",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.7.1"
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

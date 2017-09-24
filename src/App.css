@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Raleway:800");
+body {
+  background: #0c141e -webkit-radial-gradient(35% 23%, ellipse farthest-side, #14222F, #0c141e);
+  background-repeat: no-repeat;
+  display: block;
+  top: 0;
+  left: 0;
+  margin: 0; }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px; } }
+
+@media (min-width: 769px) {
+  .container {
+    padding: 0 42px; } }
+
+.container {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1100px;
+  min-height: 700px;
+  color: #fff; }
+
+#footer {
+  margin-top: 30px;
+  min-height: 200px;
+  background-color: #02070D; }
+
+.peopleList {
+  margin-top: 18px; }
+
+h1 {
+  font-family: 'open sans', sans-serif;
+  font-size: 1.5em;
+  color: #88A8C4;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); }
+
+.title {
+  animation: fadeShift cubic-bezier(0.645, 0.045, 0.355, 1) 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  animation-duration: 500ms; }
+
+.personRow {
+  font-family: 'open sans', sans-serif;
+  opacity: 0;
+  /* make things invisible upon start */
+  animation: fadeShift cubic-bezier(0.645, 0.045, 0.355, 1) 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  animation-duration: 500ms;
+  margin-bottom: 3em;
+  clear: both;
+  min-width: 400px; }
+
+.personText {
+  display: inline-block;
+  margin-top: 0.8em;
+  margin-left: 1em; }
+
+.rowStats {
+  font-size: 0.8em;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); }
+
+.personName {
+  font-family: 'raleway', sans-serif;
+  font-size: 1.8em;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); }
+
+.likesCount {
+  font-family: 'raleway', sans-serif;
+  font-size: 1.4em; }
+
+.postsCount {
+  font-family: 'raleway', sans-serif;
+  font-size: 1.4em; }
+
+.ratioStat {
+  font-family: 'raleway', sans-serif;
+  font-size: 1.4em; }
+
+.personImage {
+  display: inline-block;
+  float: left;
+  opacity: 0;
+  /* make things invisible upon start */
+  animation: popOut cubic-bezier(0.645, 0.045, 0.355, 1) 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  animation-duration: 500ms; }
+
+.personImage > img {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.1), 2px 2px 6px rgba(0, 0, 0, 0.4); }
+
+@keyframes fadeShift {
+  from {
+    opacity: 0;
+    transform: translateX(-4px); }
+  to {
+    opacity: 1;
+    transform: translateX(0px); } }
+
+.personRow:nth-child(1) {
+  animation-delay: 110ms; }
+
+.personRow:nth-child(2) {
+  animation-delay: 210ms; }
+
+.personRow:nth-child(3) {
+  animation-delay: 310ms; }
+
+.personRow:nth-child(4) {
+  animation-delay: 410ms; }
+
+.personRow:nth-child(5) {
+  animation-delay: 510ms; }
+
+.personRow:nth-child(6) {
+  animation-delay: 610ms; }
+
+.personRow:nth-child(7) {
+  animation-delay: 710ms; }
+
+.personRow:nth-child(8) {
+  animation-delay: 810ms; }
+
+.personRow:nth-child(9) {
+  animation-delay: 910ms; }
+
+.personRow:nth-child(10) {
+  animation-delay: 1010ms; }
+
+@keyframes popOut {
+  from {
+    opacity: 0;
+    transform: scale(0); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+.personRow:nth-child(1) > .personImage {
+  animation-delay: 270ms; }
+
+.personRow:nth-child(2) > .personImage {
+  animation-delay: 370ms; }
+
+.personRow:nth-child(3) > .personImage {
+  animation-delay: 470ms; }
+
+.personRow:nth-child(4) > .personImage {
+  animation-delay: 570ms; }
+
+.personRow:nth-child(5) > .personImage {
+  animation-delay: 670ms; }
+
+.personRow:nth-child(6) > .personImage {
+  animation-delay: 770ms; }
+
+.personRow:nth-child(7) > .personImage {
+  animation-delay: 870ms; }
+
+.personRow:nth-child(8) > .personImage {
+  animation-delay: 970ms; }
+
+.personRow:nth-child(9) > .personImage {
+  animation-delay: 1070ms; }
+
+.personRow:nth-child(10) > .personImage {
+  animation-delay: 1170ms; }
+
+.datePicker {
+  margin-left: 10px; }
+
+.individualDate {
+  font-family: 'open-sans', sans-serif;
+  opacity: 0;
+  /* make things invisible upon start */
+  animation: fadeIn ease-in 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  animation-duration: 500ms;
+  color: #788DA9;
+  margin-right: 0.7em; }
+
+a {
+  text-decoration: none;
+  color: #788DA9; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1); }
+  to {
+    opacity: 1;
+    transform: scale(1); } }
+
+.individualDate:nth-child(1) {
+  animation-delay: 120ms; }
+
+.individualDate:nth-child(2) {
+  animation-delay: 190ms; }
+
+.individualDate:nth-child(3) {
+  animation-delay: 260ms; }
+
+.individualDate:nth-child(4) {
+  animation-delay: 330ms; }
+
+.individualDate:nth-child(5) {
+  animation-delay: 400ms; }

@@ -1,9 +1,66 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Person from './person.jsx'
-import DateSelector from './dateselector.jsx'
+import React, { Component } from 'react';
+import './App.css';
 
-export default class App extends React.Component {
+class Person extends React.Component {
+  render() {
+  const ratio = Math.round((this.props.likes_received / this.props.messages_posted)*100) / 100;
+
+      // TODO: update so all images come from the this.props.imageSource property passed down
+      return (
+          <div className="personRow">
+              <div className="personImage">
+                  <img src={`./images/${this.props.imageSource}.jpg`}/>
+              </div>
+              <div className="personText">
+                  <span className="personName">{this.props.name}</span>
+                  <div className="rowStats">
+                      <span className="likesCount"> {this.props.likes_received}</span> likes
+                      <span className="postsCount"> {this.props.messages_posted}</span> posts
+                      <span className="ratioStat"> {ratio}</span> ratio
+                  </div>
+              </div>
+          </div>
+      )
+  }
+}
+
+class DateSelector extends React.Component {
+  render() {
+      const dayOptions = [30, 90, 180];
+      const filterDates = dayOptions.map((date, index) => {
+          return <Date key={index} days={date} updateDays={this.props.updateDays}/>
+      });
+
+      return (
+          <div className="datePicker">
+              {filterDates}
+          </div>
+      )
+  }
+}
+
+class Date extends React.Component {
+  constructor(props) {
+      super(props)
+      this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+      this.props.updateDays(this.props.days)
+      console.log(this.props.days)
+  }
+
+  render() {
+      return (
+          <div className="individualDate" style={{display:"inline"}}>
+          <a href="#" onClick={this.handleClick}>{this.props.days} days </a>
+          <span></span>
+          </div>
+      )
+  }
+}
+
+class App extends Component {
     constructor() {
         super();
         this.cachedData = {};
@@ -103,3 +160,5 @@ export default class App extends React.Component {
         );
     }
 }
+
+export default App;
