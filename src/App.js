@@ -128,7 +128,7 @@ class App extends Component {
 
                     // sort by like count before setting state
                     const arrayUsers = this.convertObjectToArray(usersObject)
-                        .sort((a,b) => parseInt(a.likes_received) < parseInt(b.likes_received))
+                        .sort((a,b) => (a.likes_received < b.likes_received) ? 1 : (a.likes_received > b.likes_received) ? -1 : 0)
 
 
                     this.cachedData[this.state.daysFilter] = arrayUsers;
